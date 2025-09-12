@@ -18,7 +18,7 @@ export const ListaAlumnos = () => {
             
             {/* inicio de contenido de lista alumnos */}
             <ScrollView style={{ padding: 16 }}>
-                <Text style={styles.sectionTitle}>Alumnos de aplicaciones moviles</Text>
+                <Text style={styles.sectionTitle}>Alumnos de AM</Text>
                 {/* Aplicacion del map, que se encarga de iterar sin necesidad de aplicar codigo c/u */}
                 {[1, 2, 3, 4, 5, 6, 7].map((item) => (
                     <View key={item} style={styles.card}>

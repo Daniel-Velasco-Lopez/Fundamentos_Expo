@@ -5,7 +5,7 @@ import CardV2 from '../../components/CardV2';
 import CardV3 from '../../components/CardV3';
 
 
-export function HomePrincipal() {
+export default function HomePrincipal() {
   
   return (
     

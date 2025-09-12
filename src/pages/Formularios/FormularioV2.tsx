@@ -3,18 +3,18 @@ import { Dimensions, Image, Platform, SafeAreaView, ScrollView, StatusBar, Style
 
 const { width } = Dimensions.get('window');
 
-export const FormularioV2 = () => {
+export default function FormularioV2() {
   return (
     <SafeAreaView style={styles.mainS}>
       <ScrollView>
-        <Text style={styles.form}>Formulario De Daniel y Blanca</Text>
+        <Text style={styles.form}>Formulario De Daniel</Text>
         <View style={styles.container}>
           <TouchableOpacity style={styles.cerrarButton}>
             <MaterialIcons name="close" size={24} color="#100f0fff" />
           </TouchableOpacity>
 
           <Image
-            source={{ uri: 'https://i.pinimg.com/originals/d5/ac/a0/d5aca0cd3681d4a0c0883644f19f1762.jpg' }}
+            source={{ uri: 'https://i.pinimg.com/474x/09/a4/f5/09a4f59d5724e831db81caec46ef64ee.jpg' }}
             style={styles.avatar}
           />
 

@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import { Image, SafeAreaView, StyleSheet, Text } from 'react-native';
 import Botones from '../Tipos_botones/Botones';
  export default  function Home() {
@@ -14,9 +7,9 @@ import Botones from '../Tipos_botones/Botones';
 
     <SafeAreaView style={styles.container}>
           <Botones />
-      <Image style={{width:150,height:150, borderRadius:59}} source={{ uri: 'https://i.pinimg.com/originals/d5/ac/a0/d5aca0cd3681d4a0c0883644f19f1762.jpg ' }} /> 
+      <Image style={{width:150,height:150, borderRadius:59}} source={{ uri: 'https://img.freepik.com/foto-gratis/fotografia-completa-adulto-montando-motocicleta-genial_23-2150868296.jpg ' }} /> 
       <Text style={styles.h1} >Bienvenidos A esta app</Text>
-      <Text style={styles.h2} > A la materia de Aplicaciones moviles de Jaczibeth</Text>
+      <Text style={styles.h2} > A la materia de Aplicaciones Móviles</Text>
     
     </SafeAreaView>
 

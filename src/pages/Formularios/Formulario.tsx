@@ -1,10 +1,10 @@
 import { MaterialIcons } from '@expo/vector-icons'; // <- Expo Icons
 import { Platform, SafeAreaView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
 
-export const Formulario = () => {
+export default function Formulario() {
   return (
     <SafeAreaView style={styles.mainS}>
-      <Text style={styles.form}>Formulario De Daniel Y Blanca</Text>
+      <Text style={styles.form}>Formulario De Daniel</Text>
 
       <Text style={styles.label}>Nombre:</Text>
       <TextInput style={styles.input1} placeholder="Escribe tu nombre completo" />
@@ -27,7 +27,7 @@ export const Formulario = () => {
       <TextInput style={styles.input1} placeholder="**************" secureTextEntry />
 
       <Text style={styles.label}>Telefono:</Text>
-      <TextInput style={styles.input1} placeholder="9532754149" keyboardType="numeric" />
+      <TextInput style={styles.input1} placeholder="9535563732" keyboardType="numeric" />
 
       <TouchableOpacity style={styles.botonGIcon}>
         <MaterialIcons name="send" size={20} color="#fff" style={styles.botonGico} />
