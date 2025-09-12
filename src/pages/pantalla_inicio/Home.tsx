@@ -9,7 +9,7 @@ export default function Home() {
         source={{ uri: 'https://img.freepik.com/foto-gratis/fotografia-completa-adulto-montando-motocicleta-genial_23-2150868296.jpg' }}
       />
       <Text style={styles.h1}>Bienvenidos A esta app</Text>
-      <Text style={styles.h2}>A la materia de Aplicaciones Móviles</Text>
+      <Text style={styles.h2}>Aplicaciones Móviles</Text>
       <Botones />
     </SafeAreaView>
   );
