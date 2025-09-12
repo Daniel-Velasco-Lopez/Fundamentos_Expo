@@ -1,40 +1,47 @@
-import { Image, SafeAreaView, StyleSheet, Text } from 'react-native';
+import { Image, Platform, SafeAreaView, StatusBar, StyleSheet, Text } from 'react-native';
 import Botones from '../Tipos_botones/Botones';
- export default  function Home() {
-  
 
+export default function Home() {
   return (
-
     <SafeAreaView style={styles.container}>
-          <Botones />
-      <Image style={{width:150,height:150, borderRadius:59}} source={{ uri: 'https://img.freepik.com/foto-gratis/fotografia-completa-adulto-montando-motocicleta-genial_23-2150868296.jpg ' }} /> 
-      <Text style={styles.h1} >Bienvenidos A esta app</Text>
-      <Text style={styles.h2} > A la materia de Aplicaciones Móviles</Text>
-    
+      <Image
+        style={styles.image}
+        source={{ uri: 'https://img.freepik.com/foto-gratis/fotografia-completa-adulto-montando-motocicleta-genial_23-2150868296.jpg' }}
+      />
+      <Text style={styles.h1}>Bienvenidos A esta app</Text>
+      <Text style={styles.h2}>A la materia de Aplicaciones Móviles</Text>
+      <Botones />
     </SafeAreaView>
-
-    
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#91d9f8ff',
+  flex: 1,
+  alignItems: 'center',
+  backgroundColor: '#91d9f8ff',
+  paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight || 20 : 60,
+  },
+  image: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    marginBottom: 20, // separa la imagen del texto
   },
   h1: {
     fontSize: 20,
     fontWeight: 'bold',
     color: '#0d0c0cff',
     fontFamily: 'georgia',
-    borderRadius: 40,
-    
-   // backgroundColor: '#76a2d2ff',
+    marginBottom: 10,
   },
-  h2: {fontSize: 16, fontWeight: 'bold',color: '#0d0c0cff',fontFamily: 'georgia',borderRadius: 40, padding: 15, alignContent: 'center',// backgroundColor: '#76a2d2ff',
+  h2: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#0d0c0cff',
+    fontFamily: 'georgia',
+    marginBottom: 20,
+    textAlign: 'center',
+    paddingHorizontal: 20,
   },
 });
-
-//export default Home; se puede omitir esta exportacion  ya que se aplica directamere nte en la declaracion de la funcion
