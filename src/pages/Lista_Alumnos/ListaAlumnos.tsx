@@ -22,7 +22,7 @@ export const ListaAlumnos = () => {
                 <View  style={styles.card} >
                     <Image source={{ uri: 'https://i.pinimg.com/originals/d5/ac/a0/d5aca0cd3681d4a0c0883644f19f1762.jpg' }} style={styles.avatar}/>
                     <View style={styles.cardInfo}>
-                    <Text style={styles.userName}>Jaczibeth Cruz </Text>
+                    <Text style={styles.userName}>Daniel Velasco López</Text>
                     <Text style={styles.userDetails}>Ing. Sistemas Computacionales</Text>
                     <TouchableOpacity style={styles.saveButton}>
                         <Text style={styles.saveButtonText}>Ver más</Text>

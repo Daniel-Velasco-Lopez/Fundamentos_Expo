@@ -7,7 +7,7 @@ export const FormularioV2 = () => {
   return (
     <SafeAreaView style={styles.mainS}>
       <ScrollView>
-        <Text style={styles.form}>Formulario De Jaczibeth</Text>
+        <Text style={styles.form}>Formulario De Daniel y Blanca</Text>
         <View style={styles.container}>
           <TouchableOpacity style={styles.cerrarButton}>
             <MaterialIcons name="close" size={24} color="#100f0fff" />
@@ -18,7 +18,7 @@ export const FormularioV2 = () => {
             style={styles.avatar}
           />
 
-          <Text style={styles.name}>Jaczibeth Cruz Ramirez</Text>
+          <Text style={styles.name}>Daniel Velasco López</Text>
 
           <View style={styles.infocontainer}>
             <Text style={styles.label}>Carrera</Text>
@@ -31,13 +31,13 @@ export const FormularioV2 = () => {
             <Text style={styles.info}>Desarrollo de Software</Text>
 
             <Text style={styles.label}>Correo</Text>
-            <Text style={styles.info}>jaczicruz@gmail.com</Text>
+            <Text style={styles.info}>danyinfo158@gmail.com</Text>
 
             <Text style={styles.label}>Telefono</Text>
-            <Text style={styles.info}>9531257502</Text>
+            <Text style={styles.info}>9535563732</Text>
 
             <Text style={styles.label}>Numero_control</Text>
-            <Text style={styles.info}>22620233</Text>
+            <Text style={styles.info}>22620076</Text>
 
             <TouchableOpacity style={styles.botonGIcon}>
               <MaterialIcons name="save" size={20} color="#fff" style={styles.botonGico} />
