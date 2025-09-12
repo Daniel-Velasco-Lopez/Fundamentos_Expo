@@ -6,7 +6,7 @@
  */
 
 import { Image, SafeAreaView, StyleSheet, Text } from 'react-native';
-import Botones from '../tipos_botones/Botones';
+import Botones from '../Tipos_botones/Botones';
  export default  function Home() {
   
 
