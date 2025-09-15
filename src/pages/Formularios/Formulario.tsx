@@ -23,7 +23,7 @@ export default function Formulario() {
           <TextInput
             editable={false}
             style={styles.input}
-            placeholder="Escribe la carrera a la que perteneces"
+            placeholder="Ing en Sistemas Computacionales"
             placeholderTextColor="#64748B"
           />
         </View>
@@ -67,14 +67,14 @@ export default function Formulario() {
           <MaterialIcons name="phone" size={20} color="#1E3A8A" style={styles.inputIcon} />
           <TextInput
             style={styles.input}
-            placeholder="9535563732"
+            placeholder="1234567890"
             keyboardType="numeric"
             placeholderTextColor="#64748B"
           />
         </View>
 
         <TouchableOpacity style={styles.button}>
-          <MaterialIcons name="send" size={20} color="#fff" style={styles.icon} />
+          <MaterialIcons name="send" size={18} color="#fff" style={styles.icon} />
           <Text style={styles.buttonText}>Enviar Formulario</Text>
         </TouchableOpacity>
       </ScrollView>
@@ -85,7 +85,7 @@ export default function Formulario() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E0F2FE', // fondo azul muy suave
+    backgroundColor: '#E0F2FE',
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight || 20 : 44,
   },
   scrollContainer: {
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#60A5FA', // azul llamativo
+    borderColor: '#60A5FA',
     borderRadius: 16,
     backgroundColor: '#fff',
     paddingHorizontal: 12,
@@ -139,13 +139,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#1E3A8A', // azul intenso profesional
-    paddingVertical: 14,
+    backgroundColor: '#1E3A8A',
+    paddingVertical: 12,
+    paddingHorizontal: 24,
     borderRadius: 16,
     marginTop: 20,
   },
   icon: {
-    marginRight: 10,
+    marginRight: 6,
   },
   buttonText: {
     color: '#fff',
