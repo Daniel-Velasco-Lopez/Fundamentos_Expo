@@ -6,13 +6,13 @@ export default function CardV3() {
       <Image
         style={styles.img}
         source={{
-          uri: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTlY1kbS--dkP5ULBZGEeKT3nJyF_KOk7VA-Nhi9TQpnxDPFxxFbjcTR_zArv28bwcY4peOpnaR-OcnBlw-2Iy-GH8BY17P3aRUMGQBPpE',
+          uri: 'https://i.pinimg.com/736x/a2/20/db/a220dba4dc07dff198706b650b0f881d.jpg',
         }}
       />
       <View style={styles.cardContent}>
-        <Text style={styles.title}>Tulipanes Especiales</Text>
+        <Text style={styles.title}>MOTOCICLETAS ESPECIALES</Text>
         <Text style={styles.content}>
-          Los tulipanes amarillos destacan por su brillo y elegancia.
+          Las motocicletas destacan por su brillo y elegancia.
         </Text>
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Descubrir</Text>

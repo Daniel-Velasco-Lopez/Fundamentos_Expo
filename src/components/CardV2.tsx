@@ -6,12 +6,12 @@ export default function CardV2() {
       <Image
         style={styles.img}
         source={{
-          uri: 'https://www.bourguignonfloristas.es/media/webp_image/magefan_blog/tulipanes_amarillos_6.webp',
+          uri: 'https://i.pinimg.com/736x/e5/8c/02/e58c02434b6e11313a98446ebb70058d.jpg',
         }}
       />
       <View style={styles.cardContent}>
-        <Text style={styles.title}>Los Tulipanes</Text>
-        <Text style={styles.content}>Los tulipanes son hermosos, más los rositas</Text>
+        <Text style={styles.title}>LAS MOTOCICLETAS</Text>
+        <Text style={styles.content}>Las motocicletas son vehículos de dos ruedas</Text>
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Ver Más</Text>
         </TouchableOpacity>

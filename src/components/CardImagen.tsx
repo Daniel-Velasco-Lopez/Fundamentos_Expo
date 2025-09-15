@@ -6,11 +6,11 @@ export default function CardImagen() {
       <Image
         style={styles.img}
         source={{
-          uri: 'https://www.bourguignonfloristas.es/media/webp_image/wysiwyg/Calendario_floral_Bourguignon6.webp',
+          uri: 'https://i.pinimg.com/1200x/b2/cb/a5/b2cba594a503b134907f9665a186d2c9.jpg',
         }}
       />
-      <Text style={styles.title}>Tulipanes</Text>
-      <Text style={styles.content}>Los tulipanes son mis flores favoritas</Text>
+      <Text style={styles.title}>MOTOCICLETAS</Text>
+      <Text style={styles.content}>Las motocicletas son vehículos de dos ruedas</Text>
     </View>
   );
 }

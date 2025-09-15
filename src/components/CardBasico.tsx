@@ -3,8 +3,8 @@ import { StyleSheet, Text, View } from "react-native";
 export default function CardBasico() {
   return (
     <View style={styles.card}>
-      <Text style={styles.title}>MIS FLORES FAVORITAS</Text>
-      <Text style={styles.content}>Hablemos acerca de los Tulipanes</Text>
+      <Text style={styles.title}>MOTOS FAVORITAS</Text>
+      <Text style={styles.content}>Hablemos sobre las motocicletas</Text>
     </View>
   );
 }
