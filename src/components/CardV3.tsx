@@ -1,71 +1,73 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View, } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function CardV3() {
-
-    return (
-        <View style={Styles.card}>
-            <Image style={Styles.img} source={{ uri: 'https://www.bourguignonfloristas.es/media/webp_image/magefan_blog/tulipanes_amarillos_6.webp' }} />
-            <View style={Styles.cardContent}>
-                <Text style={Styles.Titulo}>Los Tulipanes</Text>
-                <Text style={Styles.Contenido}> Los tulipanes son hermosos mas los rositas </Text>
-                 {/* Boton Sombreado*/}
-                        <TouchableOpacity style={[Styles.botonSombreado]}>
-                            <Text style={Styles.textoBoton}> Ver Mas</Text>
-                         </TouchableOpacity>
-            </View>
-        </View>
-    );
+  return (
+    <View style={styles.card}>
+      <Image
+        style={styles.img}
+        source={{
+          uri: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTlY1kbS--dkP5ULBZGEeKT3nJyF_KOk7VA-Nhi9TQpnxDPFxxFbjcTR_zArv28bwcY4peOpnaR-OcnBlw-2Iy-GH8BY17P3aRUMGQBPpE',
+        }}
+      />
+      <View style={styles.cardContent}>
+        <Text style={styles.title}>Tulipanes Especiales</Text>
+        <Text style={styles.content}>
+          Los tulipanes amarillos destacan por su brillo y elegancia.
+        </Text>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Descubrir</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
 }
-const Styles = StyleSheet.create({
-    card: {
-        backgroundColor: '#fff',
-        borderRadius: 8,
-        // padding: 5,
-        shadowColor: '#000',
-        elevation: 12,
-        shadowOpacity: 0.5,
-        shadowRadius: 10,
-        marginTop: 16,
-        overflow: 'hidden',
-        shadowOffset: { width: 0, height: 3 },
-    },
-    cardContent: {
-       padding: 16,
-       backgroundColor:'#fff',
-    },
-    textoBoton:{
-        color:'#18191bd4',
-        fontFamily:'Arial',
-        fontWeight:'bold',
-        fontSize:10,
-        textAlign:'center',
-    }, 
 
-
-    Titulo: {
-        marginTop: 5,
-        fontSize: 14,
-        fontWeight: 'bold',
-    },
-    Contenido: {
-        marginBottom: 12,
-        fontSize: 12,
-        color: '#333',
-    },
-    img: {
-        width: 480,
-        height: 100,
-        alignSelf: 'center',
-        // borderRadius:15,
-    },
-   
- botonSombreado:{
-        backgroundColor:'#db9db9ff',
-        paddingVertical:14,
-        paddingHorizontal:18,
-        borderRadius:10,
-        // marginBottom:15,
-        marginTop:10,
-        alignSelf:'flex-start',
-    },
+const styles = StyleSheet.create({
+  card: {
+    backgroundColor: "#EFF6FF", // fondo suave azul
+    borderRadius: 16,
+    marginVertical: 10,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: 6,
+    elevation: 4,
+    overflow: "hidden",
+  },
+  cardContent: {
+    padding: 20,
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#1E3A8A",
+    marginBottom: 8,
+  },
+  content: {
+    fontSize: 14,
+    color: "#4B5563",
+    lineHeight: 20,
+    marginBottom: 12,
+  },
+  img: {
+    width: "100%",
+    height: 180,
+    borderRadius: 16,
+    marginBottom: 12,
+  },
+  button: {
+    backgroundColor: "#fff", // botón secundario
+    borderWidth: 1,
+    borderColor: "#1E3A8A",
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 12,
+    alignSelf: "flex-start",
+  },
+  buttonText: {
+    color: "#1E3A8A",
+    fontWeight: "600",
+    fontSize: 14,
+    textAlign: "center",
+  },
 });
