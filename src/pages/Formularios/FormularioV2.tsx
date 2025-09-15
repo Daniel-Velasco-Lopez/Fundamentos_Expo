@@ -1,13 +1,14 @@
 import { MaterialIcons } from '@expo/vector-icons';
-import { Dimensions, Image, Platform, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Dimensions, Image, Platform, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 const { width } = Dimensions.get('window');
 
-export default function FormularioV2() {
+export default function FormularioV3() {
   return (
     <SafeAreaView style={styles.mainS}>
       <ScrollView>
         <Text style={styles.form}>Formulario De Daniel</Text>
+
         <View style={styles.container}>
           <TouchableOpacity style={styles.cerrarButton}>
             <MaterialIcons name="close" size={24} color="#100f0fff" />
@@ -21,23 +22,36 @@ export default function FormularioV2() {
           <Text style={styles.name}>Daniel Velasco López</Text>
 
           <View style={styles.infocontainer}>
-            <Text style={styles.label}>Carrera</Text>
-            <Text style={styles.info}>Ing en Sistemas Computacionales</Text>
-
-            <Text style={styles.label}>Semestre</Text>
-            <Text style={styles.info}>Septimo</Text>
-
-            <Text style={styles.label}>Especialidad</Text>
-            <Text style={styles.info}>Desarrollo de Software</Text>
-
-            <Text style={styles.label}>Correo</Text>
-            <Text style={styles.info}>danyinfo158@gmail.com</Text>
-
-            <Text style={styles.label}>Telefono</Text>
-            <Text style={styles.info}>9535563732</Text>
-
-            <Text style={styles.label}>Numero_control</Text>
-            <Text style={styles.info}>22620076</Text>
+            {/* Cada campo con ícono */}
+            {(() => {
+              // Import KeyboardTypeOptions from react-native
+              type KeyboardType = import('react-native').KeyboardTypeOptions;
+              const fields: {
+                label: string;
+                placeholder: string;
+                icon: keyof typeof MaterialIcons.glyphMap;
+                editable?: boolean;
+                keyboardType?: KeyboardType;
+              }[] = [
+                { label: 'Carrera', placeholder: 'Ing en Sistemas Computacionales', icon: 'school', editable: false },
+                { label: 'Especialidad', placeholder: 'Desarrollo de Software', icon: 'code', editable: false },
+                { label: 'Semestre', placeholder: 'Séptimo', icon: 'layers', editable: false },
+                { label: 'Número de control', placeholder: '22620076', icon: 'badge', editable: false },
+                { label: 'Teléfono', placeholder: '9535563732', icon: 'phone', keyboardType: 'numeric' as KeyboardType },
+                { label: 'Correo', placeholder: '22620076@tlaxiaco.tecnm.mx', icon: 'email', keyboardType: 'email-address' as KeyboardType },
+              ];
+              return fields.map((field, index) => (
+                <View style={styles.inputWrapper} key={index}>
+                  <MaterialIcons name={field.icon} size={20} color="#1E3A8A" style={styles.iconInside} />
+                  <TextInput
+                    style={styles.input}
+                    placeholder={field.placeholder}
+                    editable={field.editable !== false}
+                    keyboardType={field.keyboardType ?? 'default'}
+                  />
+                </View>
+              ));
+            })()}
 
             <TouchableOpacity style={styles.botonGIcon}>
               <MaterialIcons name="save" size={20} color="#fff" style={styles.botonGico} />
@@ -48,96 +62,117 @@ export default function FormularioV2() {
       </ScrollView>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   mainS: {
     flex: 1,
-    backgroundColor: '#d4edf7ff',
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 44,
     padding: 16,
+    backgroundColor: '#E0F2FE',
   },
   form: {
-    fontFamily: 'georgia',
+    fontFamily: 'Georgia',
     fontSize: 22,
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: 10,
+    marginBottom: 16,
+    color: '#1E3A8A',
   },
   container: {
     width: '100%',
-    justifyContent: 'center',
-    backgroundColor: '#c3d5faff',
-    borderRadius: 15,
+    borderRadius: 20,
     alignItems: 'center',
-    padding: 20,
+    padding: 24,
     marginTop: 20,
+    backgroundColor: '#BEE3F8',
     shadowColor: '#000',
-    shadowOpacity: 0.05,
-    shadowOffset: { width: 0, height: 4 },
-    shadowRadius: 18,
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 6 },
+    shadowRadius: 15,
     elevation: 5,
   },
   avatar: {
     width: width * 0.35,
     height: width * 0.35,
     borderRadius: (width * 0.35) / 2,
-    marginBottom: 20,
+    marginBottom: 16,
     borderWidth: 2,
-    borderColor: '#afe0f7ff',
+    borderColor: '#93C5FD',
   },
   name: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 16,
     borderRadius: 20,
-    backgroundColor: '#a4ccfaff',
-    padding: 5,
+    backgroundColor: '#60A5FA',
+    color: '#fff',
+    paddingVertical: 6,
+    paddingHorizontal: 16,
+    textAlign: 'center',
   },
   infocontainer: {
     width: '100%',
     paddingBottom: 20,
   },
-  label: {
-    fontSize: 13,
-    fontWeight: 'bold',
-    marginTop: 10,
+  inputWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+    position: 'relative',
   },
-  info: {
+  iconInside: {
+    position: 'absolute',
+    left: 10,
+    zIndex: 1,
+  },
+  input: {
+    flex: 1,
+    height: 45,
+    paddingLeft: 36,
+    borderRadius: 12,
+    backgroundColor: '#DBEAFE',
     fontSize: 16,
-    marginBottom: 10,
-    borderRadius: 15,
-    backgroundColor: '#f5ebebff',
-    padding: 10,
-    fontWeight: 'bold',
+    fontWeight: '500',
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    elevation: 2,
   },
   textobotong: {
-    color: '#18191bd4',
+    color: '#fff',
     fontWeight: 'bold',
-    fontSize: 15,
+    fontSize: 16,
     textAlign: 'center',
   },
   botonGIcon: {
-    backgroundColor: '#f0b2ceff',
-    marginTop: 10,
+    backgroundColor: '#1E3A8A',
+    marginTop: 16,
     flexDirection: 'row',
-    alignItems: 'center', // <-- cambiar alignContent a alignItems
+    alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 12,
-    borderRadius: 15,
+    paddingVertical: 14,
+    borderRadius: 16,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 6,
+    elevation: 3,
   },
   botonGico: {
     marginRight: 10,
   },
   cerrarButton: {
     position: 'absolute',
-    top: 10,
-    right: 10,
+    top: 12,
+    right: 12,
     zIndex: 1,
     backgroundColor: '#fff',
     borderRadius: 20,
     padding: 6,
     alignItems: 'center',
-    elevation: 2,
+    elevation: 3,
   },
 });
