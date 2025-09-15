@@ -21,18 +21,21 @@ export default function HomePrincipal() {
  
   );
 }
+
 const styles = StyleSheet.create({
   mainS: {
     flex: 1,
-    backgroundColor: '#91d9f8ff',
-    paddingTop:Platform.OS === 'android' ?  StatusBar.currentHeight:44, 
-    padding:16
+    backgroundColor: '#F3F4F6', // gris muy claro, más profesional
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 44,
+    paddingHorizontal: 16,
+    paddingBottom: 16,
   },
-  title:{
-    fontSize:22,
-    fontWeight:'bold',
-    textAlign:'center',
-    marginTop:16
+  title: {
+    fontSize: 24,
+    fontWeight: '700',
+    textAlign: 'center',
+    marginVertical: 16,
+    color: '#1E3A8A', // azul marino confiable
   },
-
 });
+
