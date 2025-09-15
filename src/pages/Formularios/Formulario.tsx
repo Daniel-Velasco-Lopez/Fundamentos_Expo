@@ -1,92 +1,155 @@
-import { MaterialIcons } from '@expo/vector-icons'; // <- Expo Icons
-import { Platform, SafeAreaView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
+import { Platform, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function Formulario() {
   return (
-    <SafeAreaView style={styles.mainS}>
-      <Text style={styles.form}>Formulario De Daniel</Text>
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <Text style={styles.formTitle}>Formulario De Daniel</Text>
 
-      <Text style={styles.label}>Nombre:</Text>
-      <TextInput style={styles.input1} placeholder="Escribe tu nombre completo" />
+        <Text style={styles.label}>Nombre:</Text>
+        <View style={styles.inputWrapper}>
+          <MaterialIcons name="person" size={20} color="#1E3A8A" style={styles.inputIcon} />
+          <TextInput
+            style={styles.input}
+            placeholder="Escribe tu nombre completo"
+            placeholderTextColor="#64748B"
+          />
+        </View>
 
-      <Text style={styles.label}>Carrera:</Text>
-      <TextInput editable={false} style={styles.input1} placeholder="Escribe la carrera a la que perteneces" />
+        <Text style={styles.label}>Carrera:</Text>
+        <View style={styles.inputWrapper}>
+          <MaterialIcons name="school" size={20} color="#1E3A8A" style={styles.inputIcon} />
+          <TextInput
+            editable={false}
+            style={styles.input}
+            placeholder="Escribe la carrera a la que perteneces"
+            placeholderTextColor="#64748B"
+          />
+        </View>
 
-      <Text style={styles.label}>Descripcion:</Text>
-      <TextInput
-        multiline
-        numberOfLines={4}
-        style={[styles.input1, styles.textarea]}
-        placeholder="Describe que esperas de la materia de app moviles"
-      />
+        <Text style={styles.label}>Descripción:</Text>
+        <View style={styles.inputWrapper}>
+          <MaterialIcons name="description" size={20} color="#1E3A8A" style={styles.inputIcon} />
+          <TextInput
+            multiline
+            numberOfLines={4}
+            style={[styles.input, styles.textarea]}
+            placeholder="Describe qué esperas de la materia de app móviles"
+            placeholderTextColor="#64748B"
+          />
+        </View>
 
-      <Text style={styles.label}>Correo Electronico:</Text>
-      <TextInput style={styles.input1} placeholder="Ingresa tu correo" keyboardType="email-address" />
+        <Text style={styles.label}>Correo Electrónico:</Text>
+        <View style={styles.inputWrapper}>
+          <MaterialIcons name="email" size={20} color="#1E3A8A" style={styles.inputIcon} />
+          <TextInput
+            style={styles.input}
+            placeholder="Ingresa tu correo"
+            keyboardType="email-address"
+            placeholderTextColor="#64748B"
+          />
+        </View>
 
-      <Text style={styles.label}>Contraseña:</Text>
-      <TextInput style={styles.input1} placeholder="**************" secureTextEntry />
+        <Text style={styles.label}>Contraseña:</Text>
+        <View style={styles.inputWrapper}>
+          <MaterialIcons name="lock" size={20} color="#1E3A8A" style={styles.inputIcon} />
+          <TextInput
+            style={styles.input}
+            placeholder="**************"
+            secureTextEntry
+            placeholderTextColor="#64748B"
+          />
+        </View>
 
-      <Text style={styles.label}>Telefono:</Text>
-      <TextInput style={styles.input1} placeholder="9535563732" keyboardType="numeric" />
+        <Text style={styles.label}>Teléfono:</Text>
+        <View style={styles.inputWrapper}>
+          <MaterialIcons name="phone" size={20} color="#1E3A8A" style={styles.inputIcon} />
+          <TextInput
+            style={styles.input}
+            placeholder="9535563732"
+            keyboardType="numeric"
+            placeholderTextColor="#64748B"
+          />
+        </View>
 
-      <TouchableOpacity style={styles.botonGIcon}>
-        <MaterialIcons name="send" size={20} color="#fff" style={styles.botonGico} />
-        <Text style={styles.textobotong}>Enviar Formulario</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.button}>
+          <MaterialIcons name="send" size={20} color="#fff" style={styles.icon} />
+          <Text style={styles.buttonText}>Enviar Formulario</Text>
+        </TouchableOpacity>
+      </ScrollView>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  mainS: {
+  container: {
     flex: 1,
-    backgroundColor: '#d4edf7ff',
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 44,
+    backgroundColor: '#E0F2FE', // fondo azul muy suave
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight || 20 : 44,
+  },
+  scrollContainer: {
     padding: 16,
   },
-  form: {
-    fontFamily: 'georgia',
-    fontSize: 22,
+  formTitle: {
+    fontFamily: 'Georgia',
+    fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginTop: 10,
-  },
-  input1: {
-    borderWidth: 1,
-    fontWeight: 'bold',
-    borderColor: '#92c3ffff',
-    borderRadius: 10,
-    backgroundColor: '#fff',
-    paddingHorizontal: 10,
-    paddingVertical: 6,
+    marginBottom: 24,
+    color: '#1E3A8A',
   },
   label: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginTop: 10,
-    marginBottom: 5,
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 6,
+    color: '#1E3A8A',
+  },
+  inputWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#60A5FA', // azul llamativo
+    borderRadius: 16,
+    backgroundColor: '#fff',
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    marginBottom: 12,
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  inputIcon: {
+    marginRight: 8,
+  },
+  input: {
+    flex: 1,
+    fontSize: 14,
+    fontWeight: '500',
+    color: '#0F172A',
   },
   textarea: {
     height: 100,
-    fontWeight: 'bold',
     textAlignVertical: 'top',
+    paddingTop: 10,
   },
-  textobotong: {
-    color: '#18191bd4',
-    fontWeight: 'bold',
-    fontSize: 15,
-    textAlign: 'center',
-  },
-  botonGIcon: {
-    backgroundColor: '#f0b2ceff',
-    marginTop: 10,
+  button: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 12,
-    borderRadius: 15,
+    backgroundColor: '#1E3A8A', // azul intenso profesional
+    paddingVertical: 14,
+    borderRadius: 16,
+    marginTop: 20,
   },
-  botonGico: {
+  icon: {
     marginRight: 10,
+  },
+  buttonText: {
+    color: '#fff',
+    fontWeight: '600',
+    fontSize: 16,
   },
 });
