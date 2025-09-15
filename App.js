@@ -1,17 +1,17 @@
 //import Formulario from './src/pages/Formularios/Formulario';
 //import FormularioV2 from './src/pages/Formularios/FormularioV2';
-//import Home from 'C:/Users/CICEM/Fundamentos_Expo/src/pages/pantalla_inicio/Home';
-import HomePrincipal from 'C:/Users/CICEM/Fundamentos_Expo/src/pages/pantalla_inicio/HomePrincipal';
+import Home from 'C:/Users/CICEM/Fundamentos_Expo/src/pages/pantalla_inicio/Home';
+//import HomePrincipal from 'C:/Users/CICEM/Fundamentos_Expo/src/pages/pantalla_inicio/HomePrincipal';
 //import Botones from './src/pages/Tipos_botones/Botones';
 //import BotonesV2 from './src/pages/Tipos_botones/BotonesV2';
 //import Lista_Alumnos from './src/pages/Lista_Alumnos/ListaAlumnos';
 export default function App() {
   return ( 
 
-  //<Home />
+  <Home />
   //<Botones /> 
   //<BotonesV2 />
-  <HomePrincipal/> 
+  //<HomePrincipal/> 
   //<Formulario/>
   //<FormularioV2/>
   //<Lista_Alumnos/>
