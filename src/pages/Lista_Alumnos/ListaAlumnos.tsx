@@ -1,140 +1,165 @@
-// creacion del listado alumnos
 import { FontAwesome } from '@expo/vector-icons';
 import React from 'react';
 import { Dimensions, Image, Platform, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const { width } = Dimensions.get('window');
 
-export const ListaAlumnos = () => {
-    return (
-        <SafeAreaView style={styles.mainS}>
-            {/* Inicio de AppBar  */}
-            <View style={styles.appBar}>
-                <FontAwesome name='arrow-left' size={20} color={'#000000ff'} />
-                <Text style={styles.appBarTitle}>Lista de usuarios</Text>
-                <View style={{ width: 20 }}></View>
+export default function ListaAlumnos() {
+  return (
+    <SafeAreaView style={styles.container}>
+      {/* AppBar */}
+      <View style={styles.appBar}>
+        <FontAwesome name='arrow-left' size={20} color={'#6B4226'} />
+        <Text style={styles.appBarTitle}>Usuarios AM</Text>
+        <View style={{ width: 20 }} />
+      </View>
+
+      {/* Contenido */}
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        <Text style={styles.sectionTitle}>Alumnos de AM</Text>
+        {[1,2,3,4,5,6,7].map(item => (
+          <View key={item} style={styles.card}>
+            <Image
+              source={{ uri: 'https://i.pinimg.com/736x/c9/94/20/c9942073e962631827d02c0c7c684414.jpg' }}
+              style={styles.avatar}
+            />
+            <View style={styles.cardContent}>
+              <Text style={styles.userName}>Daniel Velasco López</Text>
+              <Text style={styles.userDetails}>Ing. Sistemas Computacionales</Text>
+              <TouchableOpacity style={styles.detailsButton}>
+                <FontAwesome name="eye" size={16} color="#fff" />
+                <Text style={styles.detailsButtonText}>Detalles</Text>
+              </TouchableOpacity>
             </View>
-            {/* Cierre de AppBar */}
-            
-            {/* inicio de contenido de lista alumnos */}
-            <ScrollView style={{ padding: 16 }}>
-                <Text style={styles.sectionTitle}>Alumnos de AM</Text>
-                {/* Aplicacion del map, que se encarga de iterar sin necesidad de aplicar codigo c/u */}
-                {[1, 2, 3, 4, 5, 6, 7].map((item) => (
-                    <View key={item} style={styles.card}>
-                        <Image
-                            source={{ uri: 'https://i.pinimg.com/originals/d5/ac/a0/d5aca0cd3681d4a0c0883644f19f1762.jpg' }}
-                            style={styles.avatar}
-                        />
-                        <View style={styles.cardInfo}>
-                            <Text style={styles.userName}>Daniel Velasco López</Text>
-                            <Text style={styles.userDetails}>Ing. Sistemas Computacionales</Text>
-                            <TouchableOpacity style={styles.saveButton}>
-                                <Text style={styles.saveButtonText}>Ver más</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                ))}
-            </ScrollView>
-            {/* final de contenido lista alumnos */}
-            
-            {/* navbar */}
-            <View style={styles.navbar}>
-                <View style={styles.navItem}> 
-                    <FontAwesome name='bell' size={20} color={'#0f0e0eff'} />
-                    <Text style={styles.navtext}> Inicio</Text>
-                </View>
-                <View style={styles.navItem}> 
-                    <FontAwesome name='home' size={20} color={'#0f0e0eff'} />
-                    <Text style={styles.navtext}> Inicio</Text>
-                </View>
-                <View style={styles.navItem}> 
-                    <FontAwesome name='cog' size={20} color={'#0f0e0eff'} />
-                    <Text style={styles.navtext}> Inicio</Text>
-                </View>
-            </View>
-        </SafeAreaView>
-    );
-};
+          </View>
+        ))}
+      </ScrollView>
+
+      {/* Navbar */}
+      <View style={styles.navbar}>
+        <View style={styles.navItem}>
+          <FontAwesome name='bell' size={22} color='#6B4226' />
+          <Text style={styles.navText}>Alertas</Text>
+        </View>
+        <View style={styles.navItem}>
+          <FontAwesome name='home' size={22} color='#6B4226' />
+          <Text style={styles.navText}>Inicio</Text>
+        </View>
+        <View style={styles.navItem}>
+          <FontAwesome name='cog' size={22} color='#6B4226' />
+          <Text style={styles.navText}>Ajustes</Text>
+        </View>
+      </View>
+    </SafeAreaView>
+  );
+}
 
 const styles = StyleSheet.create({
-    mainS: {
-        flex: 1,
-        backgroundColor: '#f3e5f7f5',
-        paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 44,
-    },
-    appBar: {
-        height: 50,
-        backgroundColor: '#bed6f2ff',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingHorizontal: 16,
-        width: '100%',
-    },
-    appBarTitle: {
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
-    sectionTitle: {
-        fontSize: 14,
-        fontWeight: 'bold',
-        padding: 16,
-    },
-    avatar: {
-        width: width * 0.35,
-        height: width * 0.35,
-        borderRadius: (width * 0.35) / 2,
-        marginRight: 12,
-    },
-    card: {
-        padding: 16,
-        flexDirection: 'row',
-        borderRadius: 16,
-        backgroundColor: '#e5f6ffff',
-        elevation: 2,
-        marginBottom: 5,
-    },
-    cardInfo: {
-        flex: 1,
-        alignContent: 'center',
-    },
-    userName: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        marginBottom: 10,
-    },
-    userDetails: {
-        fontSize: 14,
-        fontWeight: 'bold',
-        marginBottom: 10,
-    },
-    saveButton: {
-        backgroundColor: '#f86cabff',
-        marginTop: 10,
-        paddingVertical: 6,
-        borderRadius: 15,
-        alignSelf: 'flex-end',
-        padding: 10,
-    },
-    saveButtonText: {
-        color: '#ffffff',
-        fontWeight: 'bold',
-    },
-    navbar:{
-        flexDirection:'row',
-        justifyContent:'space-around',
-        alignItems:'center',
-        height:70,
-        backgroundColor:'#c8daf5ff',
-        borderTopWidth:1,
-    },
-    navItem:{
-        alignItems:'center',
-    },
-    navtext:{
-        fontSize:12,
-        color:'#0a0a0aff',
-        marginTop: 4,
-    }
+  container: {
+    flex: 1,
+    backgroundColor: '#FFFFFF', // blanco puro
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 44,
+  },
+  appBar: {
+    height: 60,
+    backgroundColor: '#FFE4C4', // melocotón suave
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E0C097',
+  },
+  appBarTitle: {
+    color: '#6B4226',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  scrollContent: {
+    padding: 16,
+    paddingBottom: 90,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#6B4226',
+    marginBottom: 12,
+  },
+  card: {
+    flexDirection: 'row',
+    backgroundColor: '#FFE4C4', // card coral suave
+    borderRadius: 12,
+    marginBottom: 12,
+    padding: 16,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: 6,
+    elevation: 3,
+  },
+  avatar: {
+    width: width * 0.2,
+    height: width * 0.2,
+    borderRadius: (width * 0.2) / 2,
+    marginRight: 16,
+    borderWidth: 2,
+    borderColor: '#FFD700', // borde dorado
+  },
+  cardContent: {
+    flex: 1,
+  },
+  userName: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#6B4226',
+    marginBottom: 4,
+  },
+  userDetails: {
+    fontSize: 14,
+    color: '#4B3832',
+    marginBottom: 8,
+  },
+  detailsButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#228B22', // verde profesional
+    paddingVertical: 6,
+    paddingHorizontal: 10,
+    borderRadius: 10,
+  },
+  detailsButtonText: {
+    color: '#fff',
+    fontSize: 14,
+    fontWeight: '600',
+    marginLeft: 6,
+  },
+  navbar: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    height: 70,
+    backgroundColor: '#FFE4C4', // melocotón suave
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    borderTopWidth: 1,
+    borderTopColor: '#E0C097',
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowOffset: { width: 0, height: -2 },
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  navItem: {
+    alignItems: 'center',
+  },
+  navText: {
+    color: '#6B4226',
+    fontSize: 12,
+    marginTop: 4,
+    fontWeight: '500',
+  },
 });
