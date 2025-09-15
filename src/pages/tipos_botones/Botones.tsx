@@ -1,6 +1,5 @@
-import { Platform, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-// Importar los iconos desde @expo/vector-icons
 import { FontAwesome } from '@expo/vector-icons';
+import { Platform, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function Botones() {
   return (
@@ -15,13 +14,13 @@ export default function Botones() {
         {/* Boton con icono*/}
         <TouchableOpacity style={styles.botonIcono}>
             <FontAwesome name="rocket" size={20} style={styles.iconB}/>
-            <Text style={styles.text}> Boton Icono </Text>
+            <Text style={styles.textIcono}> Boton Icono </Text>
         </TouchableOpacity>
 
         {/* Boton con icono 2 */}
         <TouchableOpacity style={styles.botonIcono}>
             <FontAwesome name="user" size={20} style={styles.iconRight}/>
-            <Text style={styles.text}> Boton Usuario </Text>
+            <Text style={styles.textIcono}> Boton Usuario </Text>
         </TouchableOpacity>
     </View>
   );
@@ -30,45 +29,62 @@ export default function Botones() {
 const styles = StyleSheet.create({
   mainS: {
     flex: 1,
-    backgroundColor: '#91d9f8ff',
+    backgroundColor: '#F3E8FF', // Lavanda suave, moderno y profesional
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 44, 
-    padding: 16
+    padding: 16,
   },
   h1: {
-    fontSize: 20,
-    color: '#0d0c0cff',
-    fontFamily: 'georgia',
+    fontSize: 24,
+    color: '#1F2937',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 24,
   },
   botonbasico: {
-    backgroundColor: '#c5e6f4ff',
-    padding: 12,
-    borderRadius: 10,
-    marginTop: 10,
-    marginBottom: 10
+    backgroundColor: '#FBBF24', // Amarillo cálido
+    paddingVertical: 14,
+    paddingHorizontal: 36,
+    borderRadius: 30,
+    marginVertical: 10,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.15,
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: 6,
+    elevation: 3,
   },
   text:{
-    fontFamily: 'georgia',
-    color: '#0d0c0cff',
+    color: '#1F2937',
     fontWeight: 'bold',
+    fontSize: 18,
     textAlign: 'center',
   },
   botonIcono: {
-    backgroundColor: '#c5e6f4ff',
-    fontSize: 30,
-    padding: 12,
-    borderRadius: 10,
-    marginTop: 10,
-    marginBottom: 10,
+    backgroundColor: '#3B82F6', // Azul vibrante para iconos
+    paddingVertical: 14,
+    paddingHorizontal: 24,
+    borderRadius: 25,
+    marginVertical: 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 6,
+    elevation: 4,
+  },
+  textIcono: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 18,
   },
   iconB: {
-    color: '#861889ff',
-    marginRight: 8, // espacio entre icono y texto
+    color: '#fff',
+    marginRight: 10,
   },
   iconRight: {
-    color: '#0d0c0cff',
-    marginRight: 8,
+    color: '#fff',
+    marginRight: 10,
   },
 });

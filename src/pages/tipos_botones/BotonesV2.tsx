@@ -1,27 +1,26 @@
-import { Platform, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-// Importar los iconos desde @expo/vector-icons
 import { MaterialIcons } from '@expo/vector-icons';
+import { Platform, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function BotonesV2() {
   return (
     <View style={styles.mainS}>  
-       <Text style={styles.title}>Botones personalizados</Text>
+      <Text style={styles.title}>Botones personalizados</Text>
 
-       {/* Boton 1 G */}
-       <TouchableOpacity style={styles.botonG}>
-            <Text style={styles.textobotong}> Boton G</Text>
-       </TouchableOpacity>
+      {/* Botón grande */}
+      <TouchableOpacity style={styles.botonG}>
+        <Text style={styles.textobotong}>Botón G</Text>
+      </TouchableOpacity>
 
-       {/* Boton G con icono */}
-       <TouchableOpacity style={styles.botonGIcon}>
-            <MaterialIcons name="send" size={20} color={'#fff'} style={styles.botonGico}/>
-            <Text style={styles.textobotong}> Boton G</Text>
-       </TouchableOpacity>
+      {/* Botón grande con icono */}
+      <TouchableOpacity style={styles.botonGIcon}>
+        <MaterialIcons name="send" size={20} color={'#fff'} style={styles.botonGico}/>
+        <Text style={styles.textobotongIcon}>Botón G</Text>
+      </TouchableOpacity>
 
-       {/* Boton Sombreado */}
-       <TouchableOpacity style={[styles.botonSombreado, styles.sombra]}>
-            <Text style={styles.textobotong}> Boton Sombreado</Text>
-       </TouchableOpacity>
+      {/* Botón sombreado */}
+      <TouchableOpacity style={[styles.botonSombreado, styles.sombra]}>
+        <Text style={styles.textobotong}>Botón Sombreado</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -29,58 +28,76 @@ export default function BotonesV2() {
 const styles = StyleSheet.create({
   mainS: {
     flex: 1,
-    backgroundColor: '#91d9f8ff',
+    backgroundColor: '#F3E8FF', // Lavanda suave, moderno y cálido
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 44, 
-    padding: 16
+    padding: 16,
   },
   title: {
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginTop: 16
+    marginTop: 16,
+    color: '#1F2937',
   },
   botonG: {
-    backgroundColor: '#e8eef4ff',
-    padding: 10,
+    backgroundColor: '#FBBF24', // Amarillo cálido
+    paddingVertical: 14,
+    paddingHorizontal: 40,
     borderRadius: 40,
     marginTop: 16,
     alignSelf: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.15,
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: 6,
+    elevation: 3,
   },
   textobotong: {
-    color: '#18191bd4',
+    color: '#1F2937',
     fontWeight: 'bold',
     fontSize: 20,
     textAlign: 'center',
   },
   botonGIcon: {
-    backgroundColor: '#f86cabff',
-    marginTop: 10,
+    backgroundColor: '#3B82F6',
+    marginTop: 16,
     flexDirection: 'row',
-    alignContent: 'center',
+    alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 12,
-    borderRadius: 15,
+    paddingVertical: 14,
+    paddingHorizontal: 24,
+    borderRadius: 20,
+    alignSelf: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 6,
+    elevation: 4,
   },
   botonGico: {
-    marginRight: 8,
+    marginRight: 10,
+  },
+  textobotongIcon: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 18,
   },
   botonSombreado: {
-    backgroundColor: '#db9db9ff',
+    backgroundColor: '#10B981', // Verde confiable
     paddingVertical: 14,
-    borderRadius: 10,
-    marginBottom: 10,
-    marginTop: 10,
+    paddingHorizontal: 36,
+    borderRadius: 25,
+    marginTop: 16,
+    alignSelf: 'center',
   },
   sombra: { 
     ...Platform.select({
-      android: {
-        elevation: 6,
-      },
-      ios: {
+      android: { elevation: 6 },
+      ios: { 
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.3,
-        shadowRadius: 4,
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.25,
+        shadowRadius: 5,
       },
     }),
   },
