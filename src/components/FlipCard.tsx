@@ -1,79 +1,108 @@
-import { useRef, useState } from 'react';
-import { Animated, StyleSheet, TouchableOpacity, View, ViewStyle } from 'react-native';
+import React, { ReactNode, useRef, useState } from 'react';
+import {
+  Animated,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+  ViewStyle,
+} from 'react-native';
+
+// Importa tus cards
+
+type Variant = 'basico' | 'imagen' | 'v2' | 'v3';
 
 type FlipCardProps = {
-  front: React.ReactNode; // contenido del frente
-  back: React.ReactNode;  // contenido del reverso
-  style?: ViewStyle;      // estilos opcionales para el contenedor
+  front: ReactNode; // Contenido frontal del card
+  back?: ReactNode; // Contenido del reverso
+  containerStyle?: ViewStyle;
 };
 
-export default function FlipCard({ front, back, style }: FlipCardProps) {
-  const [flipped, setFlipped] = useState(false);
+export default function FlipCard({ front, back, containerStyle }: FlipCardProps) {
   const animatedValue = useRef(new Animated.Value(0)).current;
+  const [flipped, setFlipped] = useState(false);
 
-  const frontInterpolate = animatedValue.interpolate({
+  const frontRotate = animatedValue.interpolate({
     inputRange: [0, 180],
     outputRange: ['0deg', '180deg'],
   });
 
-  const backInterpolate = animatedValue.interpolate({
+  const backRotate = animatedValue.interpolate({
     inputRange: [0, 180],
     outputRange: ['180deg', '360deg'],
   });
 
-  const flipCard = () => {
+  const flip = () => {
     Animated.spring(animatedValue, {
       toValue: flipped ? 0 : 180,
+      friction: 8,
+      tension: 10,
       useNativeDriver: true,
     }).start();
     setFlipped(!flipped);
   };
 
   return (
-    <TouchableOpacity onPress={flipCard} activeOpacity={0.9}>
-      <View style={[styles.cardContainer, style]}>
+    <TouchableWithoutFeedback onPress={flip}>
+      <View style={[styles.container, containerStyle]}>
         {/* Frente */}
-        <Animated.View style={[styles.card, { transform: [{ rotateY: frontInterpolate }] }]}>
+        <Animated.View
+          pointerEvents={flipped ? 'none' : 'auto'}
+          style={[
+            styles.side,
+            { transform: [{ perspective: 1000 }, { rotateY: frontRotate }] },
+          ]}
+        >
           {front}
         </Animated.View>
 
         {/* Reverso */}
         <Animated.View
+          pointerEvents={flipped ? 'auto' : 'none'}
           style={[
-            styles.card,
-            styles.cardBack,
-            { transform: [{ rotateY: backInterpolate }] },
+            styles.side,
+            styles.backSide,
+            { transform: [{ perspective: 1000 }, { rotateY: backRotate }] },
           ]}
         >
-          {back}
+          {back ?? (
+            <View style={styles.defaultBackInner}>
+              <Text style={styles.backText}>Información adicional</Text>
+            </View>
+          )}
         </Animated.View>
       </View>
-    </TouchableOpacity>
+    </TouchableWithoutFeedback>
   );
 }
 
 const styles = StyleSheet.create({
-  cardContainer: {
+  container: {
     width: '100%',
     marginBottom: 16,
+    position: 'relative',
   },
-  card: {
+  side: {
     width: '100%',
-    minHeight: 150,
-    borderRadius: 16,
-    backgroundColor: '#fff',
     backfaceVisibility: 'hidden',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 4,
   },
-  cardBack: {
-    backgroundColor: '#1E3A8A',
+  backSide: {
     position: 'absolute',
     top: 0,
+    left: 0,
+  },
+  defaultBackInner: {
+    flex: 1,
+    borderRadius: 12,
+    padding: 16,
+    backgroundColor: '#1E3A8A',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  backText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '600',
+    textAlign: 'center',
   },
 });
