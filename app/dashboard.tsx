@@ -1,18 +1,17 @@
 import { useRouter } from "expo-router";
 import React from "react";
 import {
-    Dimensions,
-    SafeAreaView,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View
+  Dimensions,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
 } from "react-native";
 
 const { width } = Dimensions.get('window');
 
-// Íconos usando texto/emoji como alternativa
 const IconText = ({ icon, color }: { icon: string; color: string }) => (
   <View style={[styles.iconContainer, { backgroundColor: `${color}20` }]}>
     <Text style={[styles.iconText, { color }]}>{icon}</Text>
@@ -26,35 +25,35 @@ export default function Dashboard() {
     {
       title: "Home Principal",
       icon: "🏠",
-      screen: "/home-principal",
+      screen: "/(tabs)/home-principal",
       color: "#4CAF50",
-      description: "Pantalla principal de la aplicación"
+      description: "Pantalla principal"
     },
     {
       title: "Home",
-      icon: "🌎",
-      screen: "/home",
+      icon: "🌎", 
+      screen: "/(tabs)/index", // Usa el index existente de tabs
       color: "#2196F3",
-      description: "Vista general del sistema"
+      description: "Vista general"
     },
     {
       title: "Lista Alumnos",
       icon: "👥",
-      screen: "/lista-alumnos",
+      screen: "/(tabs)/lista-alumnos", 
       color: "#FF9800",
       description: "Gestión de estudiantes"
     },
     {
       title: "Formulario",
       icon: "📝",
-      screen: "/formulario",
-      color: "#9C27B0",
+      screen: "/(tabs)/formulario",
+      color: "#9C27B0", 
       description: "Formulario básico"
     },
     {
       title: "Formulario V2",
       icon: "✏️",
-      screen: "/formulario-v2",
+      screen: "/(tabs)/formulario-v2",
       color: "#F44336",
       description: "Formulario avanzado"
     }
@@ -80,10 +79,8 @@ export default function Dashboard() {
               onPress={() => navigateToScreen(component.screen)}
             >
               <IconText icon={component.icon} color={component.color} />
-              
               <Text style={styles.cardTitle}>{component.title}</Text>
               <Text style={styles.cardDescription}>{component.description}</Text>
-              
               <View style={styles.arrowContainer}>
                 <Text style={styles.arrowText}>›</Text>
               </View>
