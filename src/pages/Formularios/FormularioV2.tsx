@@ -7,8 +7,8 @@ export default function FormularioV3() {
   return (
     <SafeAreaView style={styles.mainS}>
       <ScrollView>
-        <Text style={styles.form}>Formulario De Daniel</Text>
-
+        <Text style={styles.form}>Formulario version2</Text>
+ 
         <View style={styles.container}>
           <TouchableOpacity style={styles.cerrarButton}>
             <MaterialIcons name="close" size={24} color="#100f0fff" />

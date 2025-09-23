@@ -5,7 +5,7 @@ export default function Formulario() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Text style={styles.formTitle}>Formulario De Daniel</Text>
+        <Text style={styles.formTitle}>Primer Formulario</Text>
 
         <Text style={styles.label}>Nombre:</Text>
         <View style={styles.inputWrapper}>
