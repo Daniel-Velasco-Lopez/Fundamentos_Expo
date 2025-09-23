@@ -256,6 +256,8 @@ export default function LoginScreen() {
         <Text style={[styles.text, styles.title]}>ITT Tlaxiaco</Text>
         <Text style={[styles.text, styles.subtitle]}>Desarrollo Móvil</Text>
         <Text style={[styles.text, styles.name]}>Daniel Velasco López</Text>
+        <Text style={[styles.text, styles.name]}> Y </Text>
+        <Text style={[styles.text, styles.name]}>Blanca E. Valerio Rivero</Text>
       </View>
     </SafeAreaView>
   )
