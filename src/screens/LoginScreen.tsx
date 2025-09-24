@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from "react"; // Hooks vienen de react
+import { useRouter } from "expo-router"; // <-- import para navegación
+import React, { useEffect, useRef } from "react";
 import {
   Animated,
   Dimensions,
@@ -10,10 +11,11 @@ import {
   View
 } from "react-native";
 
-
 const { width, height } = Dimensions.get('window');
 
 export default function LoginScreen() {
+  const router = useRouter(); // <-- hook de navegación
+
   // Animaciones principales
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const nebulaRotate = useRef(new Animated.Value(0)).current;
@@ -149,7 +151,7 @@ export default function LoginScreen() {
     outputRange: ['0deg', '360deg'],
   });
 
-  // Render nebulosa con anillos y estrellas orbitando
+  // Render funciones de animaciones
   const renderNebula = () => {
     const ringStars = [];
     const ringColors = ['#FFFFFF','#87CEFA','#BA55D3','#E6E6FA','#DDA0DD'];
@@ -158,7 +160,7 @@ export default function LoginScreen() {
     orbitStarsAnim.forEach((anim, i) => {
       const radius = orbits[Math.floor(i / 12)];
       const x = anim.interpolate({ inputRange: [0, 2*Math.PI], outputRange: [radius, -radius] });
-      const y = anim.interpolate({ inputRange: [0, 2*Math.PI], outputRange: [0, 0] }); // eje vertical
+      const y = anim.interpolate({ inputRange: [0, 2*Math.PI], outputRange: [0, 0] });
       const opacity = anim.interpolate({ inputRange: [0, Math.PI, 2*Math.PI], outputRange: [0.3,1,0.3] });
 
       ringStars.push(
@@ -183,7 +185,6 @@ export default function LoginScreen() {
     );
   }
 
-  // Render partículas flotantes
   const renderFloatingParticles = () => {
     return floatingParticles.map((p,i) => (
       <Animated.View
@@ -203,7 +204,6 @@ export default function LoginScreen() {
     ));
   };
 
-  // Render estrellas de fondo centelleantes
   const renderTwinklingStars = () => {
     const stars = [];
     for(let i=0;i<30;i++){
@@ -222,7 +222,6 @@ export default function LoginScreen() {
     return stars;
   };
 
-  // Render estrellas fugaces
   const renderShootingStars = () => {
     const colors = ['#FFFFFF','#87CEFA','#BA55D3','#DDA0DD','#F0E68C'];
     return shootingStars.map((star,index)=>{
@@ -259,8 +258,11 @@ export default function LoginScreen() {
         <Text style={[styles.text, styles.subtitle]}>Desarrollo Móvil</Text>
         <Text style={[styles.text, styles.name]}>Daniel Velasco López</Text>
 
-        {/* Botón "Inicio" */}
-        <TouchableOpacity style={styles.button} onPress={() => console.log("Inicio presionado")}>
+        {/* Botón "Inicio" con navegación a MenuScreen */}
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => router.push("../app/menu/MenuScreen")}
+        >
           <Text style={styles.buttonText}>Inicio</Text>
         </TouchableOpacity>
       </View>
