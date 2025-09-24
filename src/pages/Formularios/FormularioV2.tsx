@@ -3,11 +3,11 @@ import { Dimensions, Image, Platform, SafeAreaView, ScrollView, StatusBar, Style
 
 const { width } = Dimensions.get('window');
 
-export default function FormularioV3() {
+export default function FormularioV2() {
   return (
     <SafeAreaView style={styles.mainS}>
       <ScrollView>
-        <Text style={styles.form}>Formulario version2</Text>
+        <Text style={styles.form}>Formulario versión 2</Text>
  
         <View style={styles.container}>
           <TouchableOpacity style={styles.cerrarButton}>

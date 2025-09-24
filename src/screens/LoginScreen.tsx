@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react"; // Hooks vienen de react
 import {
   Animated,
   Dimensions,
@@ -6,8 +6,10 @@ import {
   SafeAreaView,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View
 } from "react-native";
+
 
 const { width, height } = Dimensions.get('window');
 
@@ -232,7 +234,7 @@ export default function LoginScreen() {
           transform:[
             {translateX: star.interpolate({ inputRange:[0,1], outputRange:[-100,width+100] })},
             {translateY: star.interpolate({ inputRange:[0,1], outputRange:[startTop,endTop] })},
-            {rotate: star.interpolate({ inputRange:[0,1], outputRange:['10deg','30deg'] })}
+            {rotate: star.interpolate({ inputRange:[0,1], outputRange:['10deg','30deg'] })},
           ]
         }]}>
           <View style={[styles.shootingStarHead,{backgroundColor: colors[index%colors.length]}]} />
@@ -256,8 +258,11 @@ export default function LoginScreen() {
         <Text style={[styles.text, styles.title]}>ITT Tlaxiaco</Text>
         <Text style={[styles.text, styles.subtitle]}>Desarrollo Móvil</Text>
         <Text style={[styles.text, styles.name]}>Daniel Velasco López</Text>
-        <Text style={[styles.text, styles.name]}> Y </Text>
-        <Text style={[styles.text, styles.name]}>Blanca E. Valerio Rivero</Text>
+
+        {/* Botón "Inicio" */}
+        <TouchableOpacity style={styles.button} onPress={() => console.log("Inicio presionado")}>
+          <Text style={styles.buttonText}>Inicio</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   )
@@ -285,6 +290,18 @@ const styles = StyleSheet.create({
   text:{ color:'#fff', textAlign:'center', textShadowColor:'rgba(255,255,255,0.5)', textShadowOffset:{width:0,height:0}, textShadowRadius:10 },
   title:{ fontSize:32,fontWeight:'bold', marginBottom:8,color:'#E6E6FA', textShadowColor:'rgba(147,112,219,0.8)', textShadowOffset:{width:0,height:0}, textShadowRadius:15 },
   subtitle:{ fontSize:22, marginBottom:6, color:'#D8BFD8' },
-  name:{ fontSize:18, fontStyle:'italic', color:'#DDA0DD' }
+  name:{ fontSize:18, fontStyle:'italic', color:'#DDA0DD' },
+  button: {
+    marginTop: 20,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    backgroundColor: "#4c51bf",
+    borderRadius: 9999,
+  },
+  buttonText: {
+    color: "#ffffff",
+    fontWeight: "600",
+    fontSize: 16,
+    textAlign: "center",
+  },
 });
-// Daniel Velasco López 
