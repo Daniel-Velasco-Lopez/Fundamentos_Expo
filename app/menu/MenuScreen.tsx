@@ -8,11 +8,11 @@ export default function MenuScreen() {
   const router = useRouter();
 
   const cards = [
-    { title: "HomePrincipal", route: "/HomePrincipal" },
-    { title: "Home", route: "/Home" },
-    { title: "Formulario", route: "/Formulario" },
-    { title: "FormularioV2", route: "/FormularioV2" },
-    { title: "Lista_Alumnos", route: "/Lista_Alumnos" },
+    { title: "HomePrincipal", route: "../app/pages/pantalla_inicio/HomePrincipal" },
+    { title: "Home", route: "../app/pages/pantalla_inicio/Home" },
+    { title: "Formulario", route: "../app/pages/Formularios/Formulario" },
+    { title: "FormularioV2", route: "../app/pages/Formularios/FormularioV2" },
+    { title: "Lista_Alumnos", route: "../app/pages/Lista_Alumnos/ListaAlumnos" },
   ];
 
   return (
