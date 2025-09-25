@@ -261,7 +261,7 @@ export default function LoginScreen() {
         {/* Botón "Inicio" con navegación a MenuScreen */}
         <TouchableOpacity
           style={styles.button}
-          onPress={() => router.push("../app/menu/MenuScreen")}
+          onPress={() => router.push("/menu/MenuScreen")}
         >
           <Text style={styles.buttonText}>Inicio</Text>
         </TouchableOpacity>

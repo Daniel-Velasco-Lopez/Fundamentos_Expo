@@ -1,9 +1,9 @@
+import CardBasico from '@/app/src/components/CardBasico';
+import CardImagen from '@/app/src/components/CardImagen';
+import CardV2 from '@/app/src/components/CardV2';
+import CardV3 from '@/app/src/components/CardV3';
+import FlipCard from '@/app/src/components/FlipCard';
 import { Platform, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
-import CardBasico from '../../components/CardBasico';
-import CardImagen from '../../components/CardImagen';
-import CardV2 from '../../components/CardV2';
-import CardV3 from '../../components/CardV3';
-import FlipCard from '../../components/FlipCard';
 
 export default function HomePrincipal() {
   return (
