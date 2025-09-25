@@ -1,75 +1,70 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+// app/(tabs)/index.tsx
+import { Link } from 'expo-router';
+import { ScrollView, StyleSheet, Text } from 'react-native';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-
-export default function HomeScreen() {
+export default function TabIndex() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <ScrollView style={styles.container}>
+      <Text style={styles.title}>Menú Principal</Text>
+      
+      <Link href="/pages/pantalla_inicio/Home" style={styles.link}>
+        <Text style={styles.linkText}>Pantalla de Inicio</Text>
+      </Link>
+      
+      <Link href="/pages/pantalla_inicio/HomePrincipal" style={styles.link}>
+        <Text style={styles.linkText}>Home Principal</Text>
+      </Link>
+      
+      <Link href="/pages/Formularios/Formulario" style={styles.link}>
+        <Text style={styles.linkText}>Formulario 1</Text>
+      </Link>
+      
+      <Link href="/pages/Formularios/FormularioV2" style={styles.link}>
+        <Text style={styles.linkText}>Formulario 2</Text>
+      </Link>
+      
+      <Link href="/pages/Lista_Alumnos/ListaAlumnos" style={styles.link}>
+        <Text style={styles.linkText}>Lista de Alumnos</Text>
+      </Link>
+      
+      <Link href="/pages/Navegacion/PantallaDoble" style={styles.link}>
+        <Text style={styles.linkText}>Navegación</Text>
+      </Link>
+      
+      <Link href="/pages/Tipos_botones/Botones" style={styles.link}>
+        <Text style={styles.linkText}>Botones</Text>
+      </Link>
+      
+      <Link href="/pages/Tipos_botones/BotonesV2" style={styles.link}>
+        <Text style={styles.linkText}>Botones V2</Text>
+      </Link>
+      
+      <Link href="/pages/CambioColor/ColorFondo" style={styles.link}>
+        <Text style={styles.linkText}>Color de Fondo</Text>
+      </Link>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: {
+    flex: 1,
+    padding: 20,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  link: {
+    padding: 15,
+    backgroundColor: '#f0f0f0',
+    marginVertical: 5,
+    borderRadius: 8,
+  },
+  linkText: {
+    fontSize: 16,
+    fontWeight: '500',
   },
 });
