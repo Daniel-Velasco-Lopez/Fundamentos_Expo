@@ -1,39 +1,26 @@
-import { HapticTab } from "@/components/HapticTab";
-import { IconSymbol } from "@/components/ui/IconSymbol";
-import TabBarBackground from "@/components/ui/TabBarBackground";
-import { Colors } from "@/constants/Colors";
-import { Tabs } from "expo-router";
-import { Platform, useColorScheme } from "react-native";
+// app/(tabs)/_layout.tsx
+import { MaterialIcons } from '@expo/vector-icons';
+import { Tabs } from 'expo-router';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: { position: 'absolute' },
-          default: {},
-        }),
-      }}
-    >
+    <Tabs screenOptions={{ headerShown: false }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Inicio',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="home" size={size} color={color} />
+          ),
         }}
       />
-
       <Tabs.Screen
         name="explore"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Explorar',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="explore" size={size} color={color} />
+          ),
         }}
       />
     </Tabs>
